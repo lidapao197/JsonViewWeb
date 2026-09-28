@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON 美化器 · 在线格式化</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="workspace" id="workspace">
+  <section class="panel">
+    <div class="panel-head">
+      <span class="panel-title">JSON 数据</span>
+      <div class="group">
+        <button id="formatBtn" class="btn primary" title="Ctrl / ⌘ + Enter">美化</button>
+        <button id="uploadBtn" class="btn" title="载入 .json 文件">上传</button>
+        <button id="clearBtn" class="btn" title="清空输入">清空</button>
+      </div>
+
+      <div class="group">
+        <label class="switch" title="按字母顺序重排对象键">
+          <input type="checkbox" id="sortKeys"><span>排序键</span>
+        </label>
+        <label class="switch" title="输入时自动格式化">
+          <input type="checkbox" id="autoFormat" checked><span>自动</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="editor-wrap">
+      <textarea id="input" spellcheck="false" placeholder="在此粘贴或拖入 JSON 数据…"></textarea>
+      <div class="drop-hint">松手即可载入文件</div>
+    </div>
+
+    <div class="panel-foot">
+      <span id="inputStatus" class="status">等待输入</span>
+      <span id="inputStats" class="stats"></span>
+    </div>
+    <input type="file" id="fileInput" accept=".json,.txt,application/json" hidden>
+  </section>
+
+  <div class="splitter" id="splitter" title="拖动调整宽度"></div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="panel-title">视图</span>
+      <div class="group">
+        <button id="expandBtn" class="btn" title="展开全部">展开</button>
+        <button id="collapseBtn" class="btn" title="折叠到第二层">折叠</button>
+        <button id="copyBtn" class="btn" title="Ctrl / ⌘ + Shift + C">复制</button>
+        <button id="downloadBtn" class="btn" title="保存为 .json">下载</button>
+      </div>
+    </div>
+
+    <div class="output" id="output"></div>
+
+    <div class="panel-foot">
+      <span id="outputStatus" class="status"></span>
+      <span id="outputStats" class="stats"></span>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
